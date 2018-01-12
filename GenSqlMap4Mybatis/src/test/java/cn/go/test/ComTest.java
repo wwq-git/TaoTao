@@ -1,22 +1,22 @@
 package cn.go.test;
 
 import java.io.IOException;
-import java.io.Reader;
+/*import java.io.Reader;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;*/
 
-import com.wbhl.mapper.TbOrderMapper;
+/*import com.wbhl.mapper.TbOrderMapper;
 import com.wbhl.pojo.TbOrder;
-import com.wbhl.pojo.TbOrderExample;
+import com.wbhl.pojo.TbOrderExample;*/
 
 public class ComTest {
 
 	public static void main(String[] args) throws IOException {
-		TbOrderExample example = new TbOrderExample();
+		/*TbOrderExample example = new TbOrderExample();
 		example.setPage(0L);
 		example.setRows(10L);
 		String resource = "SqlMapCOnfig.xml";
@@ -32,6 +32,6 @@ public class ComTest {
 			}
 		} finally {
 			openSession.close();
-		}
+		}*/
 	}
 }

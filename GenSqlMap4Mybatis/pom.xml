@@ -11,7 +11,7 @@
   	<spring.version>4.3.10.RELEASE</spring.version>
   	<encoding>UTF-8</encoding>
   </properties>
-  
+  <!-- 测试 -->
      <dependencies>
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <dependency>

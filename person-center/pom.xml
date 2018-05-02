@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test.dubbo</groupId>
+  <artifactId>person-center</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  
+<dependencies>
+    <!-- 引入实现编写好的person接口层 -->
+        <dependency>
+            <groupId>test.dubbo</groupId>
+            <artifactId>person-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- 引入dubbo框架（服务端、客户端通用） -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+           <!--  <exclusions>
+                <exclusion>
+                    <artifactId>spring</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions> -->
+        </dependency>
+        
+
+<!-- 因为dubbo服务端需要注册服务到zk中，因此依赖zkClient包 -->
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+</dependencies>
+  
+</project>

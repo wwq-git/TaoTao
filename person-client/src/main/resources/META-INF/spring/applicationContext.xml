@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans        
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- 备注1：引入dubbo配置相关的xml的命名空间 -->
+
+    <!-- 自动扫描注解：通过dubbo实现 -->
+    <dubbo:annotation package="test.dubbo.*" />
+    <!-- 必须加上：dubbo应用的名称 -->
+    <dubbo:application name="person-client" />
+    <!-- ubbo应用注册的zk地址 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <!-- 备注2：应用名称+zookeeper注册地址，让普通应用变成一个dubbo应用。 -->
+     
+    <!-- 注册需要使用的dubbo服务，通过interface指定服务接口 -->
+    <dubbo:reference id="personInfoService" interface="test.dubbo.itf.IpersonInfoService"
+        timeout="10000" check="false" />
+   <!--  备注2：dubbo应用作为一个服务使用者，只需要声明需要的接口服务即可。 -->
+</beans>

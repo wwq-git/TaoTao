@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans        
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!--备注1：引入dubbo配置相关的xml的命名空间 -->
+
+    <!-- 自动扫描注解：通过dubbo实现 -->
+    <dubbo:annotation package="test.dubbo.*"/>
+    <!-- 必须加上：dubbo应用的名称 -->
+    <dubbo:application name="person-center"/>
+    <!-- dubbo应用注册到zk的地址 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	<!-- 备注2：应用名称+zookeeper注册地址，让普通应用变成一个dubbo应用。 -->
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20880" />
+    <!-- 备注3：如果该dubbo应用想成为服务端，那么配置一个dubbo协议的端口。 -->
+    <!-- 服务端声明需要对外开放提供服务的接口 -->
+    <dubbo:service interface="test.dubbo.itf.IpersonInfoService"
+        protocol="dubbo" ref="personInfoService" />
+    <!-- 服务端实现接口的bean -->
+    <bean id="personInfoService"
+        class="test.dubbo.impl.PersonInfoServiceImpl" />
+   <!--  备注4：服务端声明需要对外开放的服务接口，并且对接口关联一个实现类。 -->
+</beans>
